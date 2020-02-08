@@ -21,7 +21,8 @@
        append-zeros))
 
 (defn move-right [row]
-  (->> (reverse row)
+  (->> row
+       reverse
        evaluate
        append-zeros
        reverse))
