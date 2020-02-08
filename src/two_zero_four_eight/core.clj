@@ -15,14 +15,9 @@
        (map (partial reduce +))
        (filter not-zero?)))
 
-(defn move-left [row]
-  (->> row
-       evaluate
-       append-zeros))
+(defn move-left [grid]
+  (map (comp append-zeros evaluate) grid))
 
-(defn move-right [row]
-  (->> row
-       reverse
-       evaluate
-       append-zeros
-       reverse))
+(defn move-right [grid]
+  (map (comp reverse append-zeros evaluate reverse) grid))
+
