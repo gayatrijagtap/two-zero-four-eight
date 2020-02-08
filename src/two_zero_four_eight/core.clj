@@ -9,9 +9,19 @@
   (apply concat (map (partial partition 2 2 nil)
                      (partition-by identity row))))
 
-(defn move-left [x]
-  (->> x
+(defn evaluate [row]
+  (->> row
        partition-identical-pair
        (map (partial reduce +))
-       (filter not-zero?)
-       (append-zeros)))
+       (filter not-zero?)))
+
+(defn move-left [row]
+  (->> row
+       evaluate
+       append-zeros))
+
+(defn move-right [row]
+  (->> (reverse row)
+       evaluate
+       append-zeros
+       reverse))
