@@ -29,3 +29,17 @@
 (defn move-down [grid]
   (transpose (move-right (transpose grid))))
 
+(defn get-initial-grid
+  (mapv (partial repeat 4) (repeat 4 0)))
+
+(defn get-zero-indexes [coll]
+  (keep-indexed (fn [x y] (when (zero? y) x)) coll))
+
+(defn insert-random-twos [grid n]
+
+  )
+
+(defn start-game
+  (loop [grid (get-initial-grid)]
+    )
+  )
